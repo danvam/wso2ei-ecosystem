@@ -1,4 +1,0 @@
-[2020-03-22 08:46:23,148]  INFO {org.wso2.carbon.server.util.PatchUtils} -  Checking for patch changes ...
-[2020-03-22 08:46:23,155]  INFO {org.wso2.carbon.server.util.PatchUtils} -  No new patch or service pack detected, server will start without applying patches 
-[2020-03-22 08:46:23,157]  INFO {org.wso2.carbon.server.util.PatchUtils} -  Patch verification started
-[2020-03-22 08:46:23,158]  INFO {org.wso2.carbon.server.util.PatchUtils} -  Patch verification successfully completed
