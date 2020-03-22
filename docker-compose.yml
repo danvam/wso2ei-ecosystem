@@ -22,6 +22,7 @@ services:
       - ${WSO2_CUSTOM}:/home/wso2carbon/custom
       - ${WSO2_ENTRY_POINT}/wso2ei-entry-point.sh:/home/wso2carbon/wso2ei-entrypoint.sh
       - ${WSO2_LOCAL_CARBONAPPS}:${WSO2_CONTAINER_CARBONAPPS}
+      - ${WSO2_LOCAL_LOGS}:${WSO2_CONTAINER_LOGS}
     entrypoint: 
       - /home/wso2carbon/wso2ei-entrypoint.sh 
     depends_on: 
