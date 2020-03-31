@@ -1,0 +1,47 @@
+version: '3'
+services:
+  wso2ei-integrator:
+    image: "wso2/wso2ei-integrator:${WSO2_EI_TAG}"
+    container_name: wso2ei-integrator
+    hostname: wso2ei
+    links:
+      - mariadb
+    ports:
+      - 4200:4100
+      - 8380:8280
+      - 8343:8243
+      - 9543:9443
+    expose: 
+      - 4100
+      - 9443
+      - 8280
+      - 8243
+    networks:
+      - adturnet
+    volumes: 
+      - ${WSO2_CUSTOM}:/home/wso2carbon/custom
+      - ${WSO2_ENTRY_POINT}/wso2ei-entry-point.sh:/home/wso2carbon/wso2ei-entrypoint.sh
+      - ${WSO2_LOCAL_CARBONAPPS}:${WSO2_CONTAINER_CARBONAPPS}
+      - ${WSO2_LOCAL_LOGS}:${WSO2_CONTAINER_LOGS}
+    entrypoint: 
+      - /home/wso2carbon/wso2ei-entrypoint.sh 
+    depends_on: 
+      - mariadb
+  mariadb:
+    image: "mariadb:latest"
+    container_name: wso2-mariadb
+    hostname: wso2mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+       - "3306:3306"
+    expose: 
+      - 3306
+    networks:
+       - adturnet
+    volumes:
+      - ${MYSQL_SCRIPTS}/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ${MYSQL_DATA}:/var/lib/mysql
+networks:
+  adturnet:
+    driver: bridge
