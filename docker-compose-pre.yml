@@ -42,6 +42,7 @@ services:
     volumes:
       - ${MYSQL_SCRIPTS}/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ${MYSQL_DATA}:/var/lib/mysql
+      - ./mariadb/scripts:/workspace
 networks:
   adturnet:
     driver: bridge
