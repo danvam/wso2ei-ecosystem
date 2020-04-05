@@ -1,9 +1,9 @@
 INSERT INTO regdb.UM_USER (UM_USER_NAME,UM_USER_PASSWORD,UM_SALT_VALUE,UM_REQUIRE_CHANGE,UM_CHANGED_TIME,UM_TENANT_ID) VALUES 
-('adtur','VvYemG7j2crtcnVJNNkj6Vd+nF3bAl7g0awe3xBAMy8=','z0cKdxw8HVO3rVOz66VBOQ==',0,'2020-04-05 10:25:36.000',-1234)
+('DNASport','rtIKlnQ5D0+ll65H39D0GUKcMFoXDcYntfjIpi2Uoj4=','sDv8+qnd2DXFbG6nL5MIbw==',0,'2020-04-05 10:25:36.000',-1234)
 ;
 
 INSERT INTO regdb.UM_ROLE (UM_ROLE_NAME,UM_TENANT_ID,UM_SHARED_ROLE) VALUES 
-('adturRole',-1234,0)
+('DNASportRole',-1234,0)
 ;
 
 INSERT INTO regdb.UM_PERMISSION (UM_RESOURCE_ID,UM_ACTION,UM_TENANT_ID,UM_MODULE_ID) VALUES 
@@ -76,74 +76,74 @@ INSERT INTO regdb.UM_PERMISSION (UM_RESOURCE_ID,UM_ACTION,UM_TENANT_ID,UM_MODULE
 ;
 
 INSERT INTO regdb.UM_ROLE_PERMISSION (UM_PERMISSION_ID,UM_ROLE_NAME,UM_IS_ALLOWED,UM_TENANT_ID,UM_DOMAIN_ID) VALUES 
-(20,'adturRole',1,-1234,1)
-,(21,'adturRole',1,-1234,1)
-,(22,'adturRole',1,-1234,1)
-,(23,'adturRole',1,-1234,1)
-,(24,'adturRole',1,-1234,1)
-,(25,'adturRole',1,-1234,1)
-,(26,'adturRole',1,-1234,1)
-,(27,'adturRole',1,-1234,1)
-,(28,'adturRole',1,-1234,1)
-,(29,'adturRole',1,-1234,1)
+(20,'DNASportRole',1,-1234,1)
+,(21,'DNASportRole',1,-1234,1)
+,(22,'DNASportRole',1,-1234,1)
+,(23,'DNASportRole',1,-1234,1)
+,(24,'DNASportRole',1,-1234,1)
+,(25,'DNASportRole',1,-1234,1)
+,(26,'DNASportRole',1,-1234,1)
+,(27,'DNASportRole',1,-1234,1)
+,(28,'DNASportRole',1,-1234,1)
+,(29,'DNASportRole',1,-1234,1)
 ;
 INSERT INTO regdb.UM_ROLE_PERMISSION (UM_PERMISSION_ID,UM_ROLE_NAME,UM_IS_ALLOWED,UM_TENANT_ID,UM_DOMAIN_ID) VALUES 
-(30,'adturRole',1,-1234,1)
-,(31,'adturRole',1,-1234,1)
-,(32,'adturRole',1,-1234,1)
-,(33,'adturRole',1,-1234,1)
-,(34,'adturRole',1,-1234,1)
-,(35,'adturRole',1,-1234,1)
-,(36,'adturRole',1,-1234,1)
-,(37,'adturRole',1,-1234,1)
-,(15,'adturRole',1,-1234,1)
-,(16,'adturRole',1,-1234,1)
+(30,'DNASportRole',1,-1234,1)
+,(31,'DNASportRole',1,-1234,1)
+,(32,'DNASportRole',1,-1234,1)
+,(33,'DNASportRole',1,-1234,1)
+,(34,'DNASportRole',1,-1234,1)
+,(35,'DNASportRole',1,-1234,1)
+,(36,'DNASportRole',1,-1234,1)
+,(37,'DNASportRole',1,-1234,1)
+,(15,'DNASportRole',1,-1234,1)
+,(16,'DNASportRole',1,-1234,1)
 ;
 INSERT INTO regdb.UM_ROLE_PERMISSION (UM_PERMISSION_ID,UM_ROLE_NAME,UM_IS_ALLOWED,UM_TENANT_ID,UM_DOMAIN_ID) VALUES 
-(17,'adturRole',1,-1234,1)
-,(38,'adturRole',1,-1234,1)
-,(39,'adturRole',1,-1234,1)
-,(18,'adturRole',1,-1234,1)
-,(40,'adturRole',1,-1234,1)
-,(41,'adturRole',1,-1234,1)
-,(42,'adturRole',1,-1234,1)
-,(43,'adturRole',1,-1234,1)
-,(44,'adturRole',1,-1234,1)
-,(45,'adturRole',1,-1234,1)
+(17,'DNASportRole',1,-1234,1)
+,(38,'DNASportRole',1,-1234,1)
+,(39,'DNASportRole',1,-1234,1)
+,(18,'DNASportRole',1,-1234,1)
+,(40,'DNASportRole',1,-1234,1)
+,(41,'DNASportRole',1,-1234,1)
+,(42,'DNASportRole',1,-1234,1)
+,(43,'DNASportRole',1,-1234,1)
+,(44,'DNASportRole',1,-1234,1)
+,(45,'DNASportRole',1,-1234,1)
 ;
 INSERT INTO regdb.UM_ROLE_PERMISSION (UM_PERMISSION_ID,UM_ROLE_NAME,UM_IS_ALLOWED,UM_TENANT_ID,UM_DOMAIN_ID) VALUES 
-(46,'adturRole',1,-1234,1)
-,(47,'adturRole',1,-1234,1)
-,(48,'adturRole',1,-1234,1)
-,(49,'adturRole',1,-1234,1)
-,(50,'adturRole',1,-1234,1)
-,(51,'adturRole',1,-1234,1)
-,(52,'adturRole',1,-1234,1)
-,(53,'adturRole',1,-1234,1)
-,(54,'adturRole',1,-1234,1)
-,(55,'adturRole',1,-1234,1)
+(46,'DNASportRole',1,-1234,1)
+,(47,'DNASportRole',1,-1234,1)
+,(48,'DNASportRole',1,-1234,1)
+,(49,'DNASportRole',1,-1234,1)
+,(50,'DNASportRole',1,-1234,1)
+,(51,'DNASportRole',1,-1234,1)
+,(52,'DNASportRole',1,-1234,1)
+,(53,'DNASportRole',1,-1234,1)
+,(54,'DNASportRole',1,-1234,1)
+,(55,'DNASportRole',1,-1234,1)
 ;
 INSERT INTO regdb.UM_ROLE_PERMISSION (UM_PERMISSION_ID,UM_ROLE_NAME,UM_IS_ALLOWED,UM_TENANT_ID,UM_DOMAIN_ID) VALUES 
-(56,'adturRole',1,-1234,1)
-,(57,'adturRole',1,-1234,1)
-,(58,'adturRole',1,-1234,1)
-,(59,'adturRole',1,-1234,1)
-,(60,'adturRole',1,-1234,1)
-,(61,'adturRole',1,-1234,1)
-,(62,'adturRole',1,-1234,1)
-,(63,'adturRole',1,-1234,1)
-,(64,'adturRole',1,-1234,1)
-,(65,'adturRole',1,-1234,1)
+(56,'DNASportRole',1,-1234,1)
+,(57,'DNASportRole',1,-1234,1)
+,(58,'DNASportRole',1,-1234,1)
+,(59,'DNASportRole',1,-1234,1)
+,(60,'DNASportRole',1,-1234,1)
+,(61,'DNASportRole',1,-1234,1)
+,(62,'DNASportRole',1,-1234,1)
+,(63,'DNASportRole',1,-1234,1)
+,(64,'DNASportRole',1,-1234,1)
+,(65,'DNASportRole',1,-1234,1)
 ;
 INSERT INTO regdb.UM_ROLE_PERMISSION (UM_PERMISSION_ID,UM_ROLE_NAME,UM_IS_ALLOWED,UM_TENANT_ID,UM_DOMAIN_ID) VALUES 
-(66,'adturRole',1,-1234,1)
-,(67,'adturRole',1,-1234,1)
-,(68,'adturRole',1,-1234,1)
-,(69,'adturRole',1,-1234,1)
+(66,'DNASportRole',1,-1234,1)
+,(67,'DNASportRole',1,-1234,1)
+,(68,'DNASportRole',1,-1234,1)
+,(69,'DNASportRole',1,-1234,1)
 ;
 
 INSERT INTO regdb.UM_USER_ROLE (UM_ROLE_ID,UM_USER_ID,UM_TENANT_ID) VALUES 
-((select UM_ID from regdb.UM_ROLE where UM_ROLE_NAME = 'adturRole'),(select UM_ID from regdb.UM_USER where UM_USER_NAME = 'adtur'),-1234)
+((select UM_ID from regdb.UM_ROLE where UM_ROLE_NAME = 'DNASportRole'),(select UM_ID from regdb.UM_USER where UM_USER_NAME = 'DNASport'),-1234)
 ;
 
 commit;
