@@ -1,35 +1,73 @@
-version: '3'
+version: '3.7'
 services:
-  wso2ei-integrator:
+  wso2ei:
     image: "wso2/wso2ei-integrator:${WSO2_EI_TAG}"
-    container_name: wso2ei-integrator
+    container_name: wso2ei
     hostname: wso2ei
     links:
-      - mariadb
+      - wso2mariadb
+      - wso2is
     ports:
       - 4200:4100
       - 8380:8280
       - 8343:8243
       - 9543:9443
     expose: 
-      - 4100
-      - 9443
-      - 8280
-      - 8243
+      - 4200
+      - 9543
+      - 8380
+      - 8343
     networks:
-      - adturnet
+      - dnasport
     volumes: 
-      - ${WSO2_CUSTOM}:/home/wso2carbon/custom
-      - ${WSO2_ENTRY_POINT}/wso2ei-entry-point.sh:/home/wso2carbon/wso2ei-entrypoint.sh
-      - ${WSO2_LOCAL_CARBONAPPS}:${WSO2_CONTAINER_CARBONAPPS}
-      - ${WSO2_LOCAL_LOGS}:${WSO2_CONTAINER_LOGS}
+      - ${WSO2_COMMON}:/home/wso2carbon/common
+      - ${WSO2_EI_CUSTOM}:/home/wso2carbon/custom
+      - wso2ei_carbonapps:${WSO2_EI_CONTAINER_CARBONAPPS}
+      - wso2ei_logs:${WSO2_EI_CONTAINER_LOGS}
+      - ${WSO2_EI_ENTRY_POINT}/wso2ei-entry-point.sh:/home/wso2carbon/wso2ei-entrypoint.sh
     entrypoint: 
       - /home/wso2carbon/wso2ei-entrypoint.sh 
     depends_on: 
-      - mariadb
-  mariadb:
+     - wso2mariadb
+  wso2is:
+    image: "wso2/wso2is:${WSO2_IS_TAG}"
+    container_name: wso2is
+    hostname: wso2is
+    links:
+      - wso2mariadb
+    ports:
+      - 9544:9443
+    expose: 
+      - 9544
+    networks:
+      - dnasport
+    volumes: 
+      - ${WSO2_COMMON}:/home/wso2carbon/common
+      - ${WSO2_IS_CUSTOM}:/home/wso2carbon/custom
+      - wso2is_carbonapps:${WSO2_IS_CONTAINER_CARBONAPPS}
+      - wso2is_logs:${WSO2_IS_CONTAINER_LOGS}
+      - ${WSO2_IS_ENTRY_POINT}/wso2is-entry-point.sh:/home/wso2carbon/wso2is-entrypoint.sh
+    entrypoint: 
+      - /home/wso2carbon/wso2is-entrypoint.sh 
+    depends_on: 
+       - wso2mariadb
+  filebeat:
+    image: "docker.elastic.co/beats/filebeat:7.6.1"
+    container_name: filebeat
+    hostname: filebeat
+    command: filebeat -e -strict.perms=false
+    volumes:
+      - ./filebeat/filebeat-pre.yml:/usr/share/filebeat/filebeat.yml
+      - wso2ei_logs:/var/logs/wso2carbon/ei
+      - wso2is_logs:/var/logs/wso2carbon/is
+    networks: 
+      - dnasport
+    depends_on: 
+      - wso2is
+      - wso2ei
+  wso2mariadb:
     image: "mariadb:latest"
-    container_name: wso2-mariadb
+    container_name: wso2mariadb
     hostname: wso2mariadb
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -38,11 +76,21 @@ services:
     expose: 
       - 3306
     networks:
-       - adturnet
+       - dnasport
     volumes:
       - ${MYSQL_SCRIPTS}/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - ${MYSQL_DATA}:/var/lib/mysql
-      - ./mariadb/scripts:/workspace
+      - mariadb_data:/var/lib/mysql
 networks:
-  adturnet:
+  dnasport:
     driver: bridge
+volumes:
+  mariadb_data:
+    external: false
+  wso2ei_logs:
+    external: false
+  wso2is_logs:
+    external: false
+  wso2ei_carbonapps:
+    external: false
+  wso2is_carbonapps:
+    external: false
