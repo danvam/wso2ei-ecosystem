@@ -44,5 +44,5 @@ multiline.match: after
 
 #—————————– Logstash output ——————————–
 # The Logstash hosts
-output.logstash.hosts: [192.168.9.13]
-output.logstash.index: wso2-prod
+output.logstash.hosts: [logstash]
+output.logstash.index: wso2-dev
