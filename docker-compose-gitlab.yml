@@ -21,6 +21,14 @@ services:
         registry_external_url 'http://localhost:4567'
         registry['enable'] = true
         unicorn['socket'] = '/opt/gitlab/var/unicorn/gitlab.socket'
+        gitlab_rails['smtp_enable'] = true 
+        gitlab_rails['smtp_address'] = "***"
+        gitlab_rails['smtp_port'] = 465    
+        gitlab_rails['smtp_user_name'] = "***"
+        gitlab_rails['smtp_password'] = "***"
+        gitlab_rails['smtp_enable_starttls_auto'] = true
+        gitlab_rails['smtp_tls'] = true    
+        gitlab_rails['smtp_openssl_verify_mode'] = 'peer'
     networks:
       - dnasport
 
