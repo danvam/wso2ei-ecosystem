@@ -18,7 +18,8 @@ filebeat.inputs:
 
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
-  - '/var/logs/wso2carbon/*'
+  - '/var/logs/wso2carbon/ei/*'
+  - '/var/logs/wso2carbon/is/*'
 
 
 ### Multiline options

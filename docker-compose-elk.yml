@@ -23,7 +23,7 @@ services:
     ports:
       - 5044:5044/tcp
     volumes:
-      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro 
+      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
     networks:
       - dnasport
     environment: 

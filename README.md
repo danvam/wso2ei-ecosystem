@@ -2,15 +2,22 @@
 
 **Docker User**
 
-Comandos:
 
-- sudo groupadd docker
+`
+sudo groupadd docker
+`
 
-- sudo adduser wso2carbon
+`
+sudo adduser wso2carbon 
+`
 
-- sudo usermod -aG docker wso2carbon
+`
+sudo usermod -aG docker wso2carbon
+`
 
-- newgrp docker 
+`
+newgrp docker 
+`
 
 Editar:
   - /etc/subuid
@@ -25,25 +32,59 @@ Editar o crear:
     * Contenido:
 ```JSON
 {
-    "userns-remap": "wso2carbon"
+    "userns-remap": "wso2carbon",
+    "debug": false,
+    "restart": "on-failure"
 }
 ```
-        
+**CENTOS 7**
 
-- sudo /etc/init.d/docker restart
+Habilitar namespace
+
+`
+sudo grubby --args="namespace.unpriv_enable=1" --update-kernel="$(grubby --default-kernel)"
+`
+
+Permintir un número de namespaces mayor que cero
+
+`
+sudo echo "user.max_user_namespaces=15076" >> /etc/sysctl.conf
+`
+
+Permitir acceso de los contenedores a la ubicación de los archivos compartidos de configuración
+
+`
+chmod a+rwx /home/user/wso2-system/
+`
+
+Si fuera necesario reiniciar
+
+`
+sudo reboot
+`
+
+Reiniciar docker si no se ha reiniciado la máquina.
+
+`
+sudo /etc/init.d/docker restart
+`
 
 ----------
 
 **Ejecutar docker-compose monitorización ELK**
 
-- docker-compose -f docker-compose-elk.yml up -d
-
+`
+docker-compose -f docker-compose-elk.yml up -d
+`
 
 **Ejecutar docker-compose entorno WSO2**
 
-- docker-compose -f docker-compose-env.yml up -d
+`
+docker-compose -f docker-compose-env.yml up -d
+`
 
 **Ejecutar docker-compose repositorio GITLAB**
 
-- docker-compose -f docker-compose-gitlab.yml up -d
-
+`
+docker-compose -f docker-compose-gitlab.yml up -d
+`
