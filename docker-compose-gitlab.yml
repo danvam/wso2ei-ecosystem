@@ -22,10 +22,10 @@ services:
         registry['enable'] = true
         unicorn['socket'] = '/opt/gitlab/var/unicorn/gitlab.socket'
         gitlab_rails['smtp_enable'] = true 
-        gitlab_rails['smtp_address'] = "***"
+        gitlab_rails['smtp_address'] = ${GITLAB_SMTP_SERVER}
         gitlab_rails['smtp_port'] = 465    
-        gitlab_rails['smtp_user_name'] = "***"
-        gitlab_rails['smtp_password'] = "***"
+        gitlab_rails['smtp_user_name'] = ${GITLAB_EMAIL_USER}
+        gitlab_rails['smtp_password'] = ${GITLAB_EMAIL_PASS}
         gitlab_rails['smtp_enable_starttls_auto'] = true
         gitlab_rails['smtp_tls'] = true    
         gitlab_rails['smtp_openssl_verify_mode'] = 'peer'
