@@ -94,10 +94,10 @@
     <parameter name="enableBasicAuth" locked="false">true</parameter>
 
     <!-- OAuth2 Token Validation Service -->
-    <parameter name="oauth2TokenValidationService">https://wso2is:9444/services/OAuth2TokenValidationService</parameter>
+    <parameter name="oauth2TokenValidationService">https://wso2is:9443/services/OAuth2TokenValidationService</parameter>
     <!-- Server credentials -->
-    <parameter name="identityServerUserName">admin</parameter>
-    <parameter name="identityServerPw">admin</parameter>
+    <parameter name="identityServerUserName">changeit</parameter>
+    <parameter name="identityServerPw">changeit</parameter>
 
     <!-- To override repository/services you need to uncomment following parameter and value -->
     <!-- SHOULD be absolute file path. -->
