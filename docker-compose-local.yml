@@ -4,20 +4,19 @@ services:
     image: "wso2/wso2ei-integrator:${WSO2_EI_TAG}"
     container_name: wso2ei
     hostname: wso2ei
-    restart: unless-stopped
     links:
       - wso2mariadb
       - wso2is
     ports:
-      - 4100:4100
-      - 8280:8280
-      - 8243:8243
-      - 9443:9443
+      - 4300:4100
+      - 8480:8280
+      - 8443:8243
+      - 9643:9443
     expose: 
-      - 4100
-      - 9443
-      - 8280
-      - 8243
+      - 4300
+      - 9643
+      - 8480
+      - 8443
     networks:
       - dnasport
     volumes: 
@@ -34,13 +33,14 @@ services:
     image: "wso2/wso2is:${WSO2_IS_TAG}"
     container_name: wso2is
     hostname: wso2is
-    restart: unless-stopped
     links:
       - wso2mariadb
     ports:
-      - 9444:9443
+      - 9644:9443
+      - 9963:9763
     expose: 
-      - 9444
+      - 9644
+      - 9963
     networks:
       - dnasport
     volumes: 
@@ -53,26 +53,10 @@ services:
       - /home/wso2carbon/wso2is-entrypoint.sh 
     depends_on: 
        - wso2mariadb
-  filebeat:
-    image: "docker.elastic.co/beats/filebeat:7.6.1"
-    container_name: filebeat
-    hostname: filebeat
-    restart: unless-stopped
-    command: filebeat -e -strict.perms=false
-    volumes:
-      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
-      - wso2ei_logs:/var/logs/wso2carbon/ei
-      - wso2is_logs:/var/logs/wso2carbon/is
-    networks: 
-      - dnasport
-    depends_on: 
-      - wso2is
-      - wso2ei
   wso2mariadb:
     image: "mariadb:latest"
     container_name: wso2mariadb
     hostname: wso2mariadb
-    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
