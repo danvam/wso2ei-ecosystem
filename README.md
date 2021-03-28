@@ -88,3 +88,30 @@ docker-compose -f docker-compose-env.yml up -d
 `
 docker-compose -f docker-compose-gitlab.yml up -d
 `
+
+
+## OAuth2 handler autenticación api rest con IS
+
+`
+https://docs.wso2.com/display/EI630/Applying+Security+to+an+API
+`
+
+`
+https://github.com/wso2-docs/ESB/tree/master/ESB-Artifacts/OAuthHandler_Sample
+`
+
+## Cambiar hostname wso2 products
+
+`
+https://docs.wso2.com/display/IS580/Changing+the+hostname
+`
+
+## Autenticación con dominio para peticiones SOA
+
+`
+https://medium.com/@nipunadilhara/ntlm-authentication-for-wso2-esb-v6-2-0-9584c3e6713
+`
+
+`
+https://github.com/randikaperera/NTLM-Mediator/tree/master/org.wso2.carbon.mediator.ntlm
+`
